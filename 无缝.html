@@ -31,7 +31,6 @@
 		.img-ct  {
 			position: absolute;
 			top: 0;
-			left: 0;
 			overflow: hidden;
 		}
 		.img-ct li {
@@ -118,106 +117,9 @@
 		</ul>
 	</div>
 <script src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.js"></script>
+<script src="./carousel.js"></script>
 <script>
-	/*$.fn.carousel=function(){ 
-		 new Rotation(); 
-		
-	 }*/
-	function Rotation($el){
-		this.$element=$el;
-		this.init();
-		this.bind();
-	}
-	Rotation.prototype={
-		init: function(){
-			var $imgCt=this.$imgCt=this.$element.find('.img-ct'),
-					$buttonPre=this.$buttonPre=this.$element.find('.button-pre'),
-					$buttonNext=this.$buttonNext=this.$element.find('.button-next'),
-					$bullet=this.$bullet=this.$element.find('.bullet');
-					 var $firstImg = $imgCt.find('li').first(),
-        			$lastImg = $imgCt.find('li').last();
-					this.imgCount=$imgCt.children().length;
-					this.imgWidth=$lastImg.width();
-					this.curIdx=0;
-					this.isAnimate=false;
-					
-					$imgCt.append($firstImg.clone());
-					$imgCt.prepend($lastImg.clone());
-					
-					this.imgRealCount=$imgCt.children().length;
-					$imgCt.width(this.imgRealCount*this.imgWidth);
-					
-			$imgCt.css({
-				left: -this.imgWidth,
-				width: this.imgWidth*this.imgRealCount
-			})
-		},
-		bind: function(){
-			var _this=this;
-			this.$buttonPre.on('click',function(e){
-				 e.preventDefault();
-				_this.playPre();
-			})
-			this.$buttonNext.on('click',function(e){
-				 e.preventDefault();
-				_this.playNext();
-			})
-			this.$bullet.find('li').on('click',function(){
-				var $cur=$(this);
-				var idx=$cur.index();
-				if(idx>_this.curIdx){
-					_this.playNext(idx-_this.curIdx)
-				}else if(idx<_this.curIdx){
-					_this.playPre(_this.curIdx-idx)
-				}
-			})
-		},
-		playPre: function(idx){
-			var _this=this;
-			idx=idx||1;
-			if(!this.isAnimate){
-			this.isAnimate=true;
-			this.$imgCt.animate({left:'+='+_this.imgWidth*idx},function(){
-				_this.curIdx=(_this.cuIdx-idx+_this.imgCount)%_this.imgCount;
-				_this.setButtle();
-				if(_this.curIdx===_this.imgCount){
-					_this.$imgCt.css({
-						left: -_this.imgWidth*(_this.imgCount-1)
-					})
-					
-				}
-				
-				
-			})
-			_this.isAnimate=false;
-			}
-		},
-		playNext: function(idx){
-			var _this=this;
-			idx=idx||1;
-			if(!this.isAnimate){
-			this.isAnimate=true;
-			this.$imgCt.animate({left:"-="+_this.imgWidth*idx},function(){
-				_this.curIdx=(_this.cuIdx+idx)%_this.imgCount;
-				if(_this.curIdx===0){
-					_this.$imgCt.css({
-						left: -_this.imgWidth
-					})
-				}
-				_this.isAnimate=false;
-				_this.setButtle();
-			})
-			}
-		},
-		setButtle: function(){
-			this.$bullet.find('li')
-                .removeClass('active')
-                .eq(this.curIdx)
-                .addClass('active')
-		}
-	}
-	new Rotation($('.carousel').eq(0));
-	new Rotation($('.carousel').eq(1));
+	 $('.carousel').carousel();
 </script>
 </body>
 </html>
