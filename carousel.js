@@ -1,7 +1,9 @@
-function Rotation($element){
+function Rotation($element,interval){
 		this.$element=$element;
+		this.interval=interval;
 		this.init();
 		this.bind();
+		this.setTime();
 	}
 Rotation.prototype={
 		init: function(){
@@ -92,10 +94,16 @@ Rotation.prototype={
                 .removeClass('active')
                 .eq(this.curIdx)
                 .addClass('active')
+		},
+		setTime: function(){
+			var _this=this;
+			setInterval(function(){
+				_this.playNext();
+			},_this.interval)
 		}
 	}
-	$.fn.carousel=function(){ 
+	$.fn.carousel=function(time){ 
 		 this.each(function(){
-			new Rotation($(this));
+			new Rotation($(this),time);
 		 })
 	 }

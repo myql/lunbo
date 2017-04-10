@@ -86,10 +86,10 @@
 <body>
 	<div class="carousel">
 		<ul class="img-ct">
-			<li>1<img src="http://cdn.jirengu.com/book.jirengu.com/img/1.jpg" alt="图片1"></li>
-			<li>2<img src="http://cdn.jirengu.com/book.jirengu.com/img/2.jpg" alt="图片2"></li>
-			<li>3<img src="http://cdn.jirengu.com/book.jirengu.com/img/3.jpg" alt="图片3"></li>
-			<li>4<img src="http://cdn.jirengu.com/book.jirengu.com/img/4.jpg" alt="图片4"></li>
+			<li><img src="http://cdn.jirengu.com/book.jirengu.com/img/1.jpg" alt="图片1"></li>
+			<li><img src="http://cdn.jirengu.com/book.jirengu.com/img/2.jpg" alt="图片2"></li>
+			<li><img src="http://cdn.jirengu.com/book.jirengu.com/img/3.jpg" alt="图片3"></li>
+			<li><img src="http://cdn.jirengu.com/book.jirengu.com/img/4.jpg" alt="图片4"></li>
 		</ul>
 		<a href="##" class="button button-pre"><</a>
 		<a href="##" class="button button-next">></a>
@@ -119,7 +119,8 @@
 <script src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.js"></script>
 <script src="./carousel.js"></script>
 <script>
-	 $('.carousel').carousel();
+	 $('.carousel').eq(0).carousel(3000);
+	 $('.carousel').eq(1).carousel(6000);
 </script>
 </body>
 </html>
