@@ -1,3 +1,4 @@
+(function(){
 function Rotation($element,interval){
 		this.$element=$element;
 		this.interval=interval;
@@ -102,8 +103,10 @@ Rotation.prototype={
 			},_this.interval)
 		}
 	}
+
 	$.fn.carousel=function(time){ 
 		 this.each(function(){
 			new Rotation($(this),time);
 		 })
 	 }
+})()
